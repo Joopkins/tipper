@@ -45,7 +45,7 @@ class TipCalculator {
     }
     
     func calculateTip () {
-        self._tipAmount = billAmount * tipPercent
+        self._tipAmount = billAmount * (round(tipPercent*100))/100
         self._totalAmount = tipAmount + billAmount
     }
     

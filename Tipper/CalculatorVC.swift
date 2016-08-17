@@ -18,6 +18,9 @@ class CalculatorVC: UIViewController {
     @IBOutlet weak var TipPercentSlider: UISlider!
     @IBOutlet weak var TipAmountLabel: UILabel!
     @IBOutlet weak var TotalAmountLabel: UILabel!
+    @IBOutlet weak var splitNumber: UILabel!
+    @IBOutlet weak var splitSlider: UISlider!
+    @IBOutlet weak var splitCost: UILabel!
     
     // MARK: - @Properties
     var tipCalculator = TipCalculator(billAmount: 0.0, tipPercent: 0.0)
@@ -26,10 +29,20 @@ class CalculatorVC: UIViewController {
     // MARK: - Initialize Views
     override func viewDidLoad() {
         super.viewDidLoad()
+        TipperTitleView.layer.shadowOpacity = 1.0
     }
 
     // MARK: - @IBActions
+    @IBAction func splitAmountChanged(_ sender: AnyObject) {
+        splitNumber.text = "Split: \(Int(splitSlider.value))"
+        updateUI()
+    }
+    
     @IBAction func billAmountChanged(_ sender: AnyObject) {
+        calculateTip()
+    }
+    
+    @IBAction func tipPercentChanged(_ sender: AnyObject) {
         calculateTip()
     }
     
@@ -41,6 +54,14 @@ class CalculatorVC: UIViewController {
         }
         
         tipCalculator.calculateTip()
+        updateUI()
+    }
+    
+    func updateUI() {
+        TipPercentLabel.text = "Tip: \(Int(round(TipPercentSlider.value * 100)))%"
+        TipAmountLabel.text = String(format: "$%0.2f", tipCalculator.tipAmount)
+        TotalAmountLabel.text = String(format: "$%0.2f", tipCalculator.totalAmount)
+        splitCost.text = String(format: "$%0.2f", tipCalculator.totalAmount / Double(Int(splitSlider.value)))
     }
 }
 

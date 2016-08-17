@@ -41,9 +41,9 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="anP-OS-1QB">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip 16%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMO-jS-IAT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip 15%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMO-jS-IAT">
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="ZcQ-Iu-BpN"/>
+                                                    <constraint firstAttribute="width" constant="100" id="ZcQ-Iu-BpN"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.71764705880000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,6 +51,9 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.14999999999999999" minValue="0.10000000000000001" maxValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="nGh-sh-3Vu">
                                                 <color key="tintColor" red="0.78267227559999997" green="0.78267227559999997" blue="0.78267227559999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="tipPercentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ilc-7q-CXc"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -84,12 +87,52 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="188" id="2cS-FN-Mr6"/>
+                                            <constraint firstAttribute="width" constant="250" id="2cS-FN-Mr6"/>
                                         </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="IgS-UU-ead">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ggW-zC-dSS">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdt-sU-eUq">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="aXp-Jd-Snf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.71764705880000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="dg8-Pd-EnT">
+                                                        <color key="tintColor" red="0.78267227559999997" green="0.78267227559999997" blue="0.78267227559999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="splitAmountChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="odZ-XT-Dm4"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5rH-4s-365">
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eachIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-AH-eqJ"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHu-Xg-3SW">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <color key="textColor" red="0.0" green="0.71764705880000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHL-qD-uyI">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <color key="textColor" red="0.94901960780000005" green="0.65098039220000004" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="n7I-Wd-oHa" firstAttribute="width" secondItem="2pR-ks-rAj" secondAttribute="width" id="2Yh-4M-KY1"/>
+                                    <constraint firstItem="dg8-Pd-EnT" firstAttribute="leading" secondItem="nGh-sh-3Vu" secondAttribute="leading" id="4S3-Hh-9ak"/>
+                                    <constraint firstItem="dg8-Pd-EnT" firstAttribute="trailing" secondItem="nGh-sh-3Vu" secondAttribute="trailing" id="WhD-5A-e4g"/>
+                                    <constraint firstItem="5rH-4s-365" firstAttribute="width" secondItem="2pR-ks-rAj" secondAttribute="width" id="fhA-YV-scp"/>
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter bill amount..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-Oi-qZP">
@@ -128,6 +171,9 @@
                         <outlet property="TipperTitleLabel" destination="xqy-UY-RKj" id="vxJ-ea-geB"/>
                         <outlet property="TipperTitleView" destination="u8I-NC-lyS" id="Z32-zt-Yel"/>
                         <outlet property="TotalAmountLabel" destination="POI-HT-DM9" id="3RU-jS-fMK"/>
+                        <outlet property="splitCost" destination="iHL-qD-uyI" id="gda-qt-kjj"/>
+                        <outlet property="splitNumber" destination="qdt-sU-eUq" id="SKX-E3-iqo"/>
+                        <outlet property="splitSlider" destination="dg8-Pd-EnT" id="bru-f8-2h7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -136,6 +182,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="eachIcon" width="20" height="23"/>
         <image name="tipIcon" width="23" height="23"/>
         <image name="totalIcon" width="24" height="26"/>
     </resources>
